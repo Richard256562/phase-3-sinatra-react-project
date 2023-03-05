@@ -6,4 +6,10 @@ class ApplicationController < Sinatra::Base
     "WELCOME TO CHEECH AND CHONG MEME WORLD"
   end
 
+  # Get all memes from the database
+  get "/memes"  do
+    memes =Meme.all
+    memes.to_json
+  end
+
 end
