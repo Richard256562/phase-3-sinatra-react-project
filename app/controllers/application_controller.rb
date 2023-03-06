@@ -11,5 +11,12 @@ class ApplicationController < Sinatra::Base
     memes =Meme.all
     memes.to_json
   end
+#get all the available memes in the database
+  get "/memes" do
+    memes = Meme.available_memes
+    memes.to_json
+  end
+
+  
 
 end
