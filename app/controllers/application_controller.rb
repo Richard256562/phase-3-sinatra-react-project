@@ -17,6 +17,16 @@ class ApplicationController < Sinatra::Base
     memes.to_json
   end
 
+  delete '/memes/:id' do |id|
+    meme = Meme.find_by(id: id)
   
+    if meme
+      meme.destroy
+      { message: "Meme with id #{id} deleted successfully" }.to_json
+    else
+      halt 404, { error: "Meme with id #{id} not found" }.to_json
+    end
+  
+
 
 end
